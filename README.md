@@ -156,38 +156,26 @@ Smart Contract (Onchain):
 
 ---
 
+## 💡 Future Enhancement: Yield Generation (Mainnet)
+
+**Note:** On mainnet,since the CIRCLEUSDC is same as  underlying token for  mainnet confidential token in zamausdc, so the deposited USDC will be put to work in lending protocols (like Aave) to generate APR while idle. This maximizes capital efficiency:
+
+- ✅ **While Active:** Deposited USDC earns yield in Aave/other protocols
+- ✅ **Owner Checking In:** Will remains locked, USDC continues earning
+- ✅ **Trigger Initiated:** Upon owner missing check-in or beneficiary initiating claim, USDC is withdrawn from lending protocols
+- ✅ **Beneficiary Claims:** Beneficiaries receive their encrypted allocation (as confidential cUSDC)
+
+This approach ensures that **dormant inheritance funds don't sit idle** — they generate returns for the inheritance pool until needed. The Sepolia testnet version uses direct USDC holding for simplicity.
+
+---
+
 ## 🎬 Demo
 
 [pending]
 
 ---
 
-## 📝 Project Structure
 
-```
-src/
-├── app/
-│   ├── layout.tsx           # Root layout
-│   ├── page.tsx             # Dashboard
-│   └── not-found.tsx        # 404 page
-├── components/
-│   ├── WillOverview.tsx      # Create/manage will
-│   ├── ClaimPanel.tsx        # Claim inheritance
-│   ├── Navbar.tsx            # Navigation
-│   └── ...
-├── hooks/
-│   ├── useWill.ts            # Contract queries
-│   └── useUSDC.ts            # Token queries
-├── lib/
-│   ├── contracts.ts          # ABIs & addresses
-│   ├── fhe.ts                # Zama encryption
-│   ├── wagmi.ts              # Wagmi config
-│   └── utils.ts              # Helpers
-└── types/
-    └── index.ts              # TypeScript types
-```
-
----
 
 ## 🔗 Links
 
