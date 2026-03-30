@@ -27,7 +27,7 @@ PrivateWill demonstrates how FHE enables **private inheritance planning** on pub
 
 | Contract | Address |
 |---|---|
-| **PrivateWill** (Main Protocol) | `0xa3a5F67797708D9664D5Ea3CF29616998642A10B` |
+| **PrivateWill** (Main Protocol) | `0x1d35b988eF146B913aE61BC514b5DC10356d310f` |
 | **Sepolia USDC** (Test Token) | `0x9b5Cd13b8eFbB58Dc25A05CF411D8056058aDFfF` |
 | **Confidential USDC (cUSDC)** (Encrypted Wrapper) | `0x7c5BF43B851c1dff1a4feE8dB225b87f2C223639` |
 

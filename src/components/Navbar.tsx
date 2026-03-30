@@ -19,14 +19,6 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href="https://sepolia.etherscan.io/address/0x207F50d9Ef7b582C85619D3332fCfCBCcd8265B6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:block text-xs font-mono text-gray-500 hover:text-white transition-colors"
-          >
-            0x207F...65B6 ↗
-          </a>
           <ConnectButton.Custom>
             {({
               account,

@@ -127,6 +127,13 @@ export function WillOverview({ address }: WillOverviewProps) {
       return;
     }
 
+    // 🔍 Check if owner accidentally added themselves
+    const beneficiaryAddrsToCheck = beneficiaries.map(b => b.address.toLowerCase());
+    if (beneficiaryAddrsToCheck.includes(address.toLowerCase())) {
+      alert("⚠️ You cannot be your own beneficiary! Remove yourself from the list.");
+      return;
+    }
+
     setIsEncrypting(true);
     try {
       // Step 1: Encrypt beneficiary amounts using FHE
@@ -159,9 +166,12 @@ export function WillOverview({ address }: WillOverviewProps) {
         checkInIntervalSeconds: BigInt(intervalSeconds),
         depositAmount: totalAmount.toString(),
         beneficiariesCount: beneficiaryAddrs.length,
+        beneficiaryAddresses: beneficiaryAddrs,  // 🔍 Log actual addresses
         encryptedHandlesCount: encrypted.handles.length,
         inputProofsCount: inputProofs.length,
       });
+      console.log("🎯 Beneficiary Addresses being sent to contract:", beneficiaryAddrs);
+      console.log("🎯 Owner address (msg.sender will be):", address);
       
       createWillWrite({
         address: CRYPTOWILL_ADDRESS,
@@ -371,6 +381,31 @@ export function WillOverview({ address }: WillOverviewProps) {
             <div className="text-sm font-mono text-white truncate">{s.value}</div>
           </div>
         ))}
+      </div>
+
+      {/* Share Claim Link */}
+      <div className="border border-blue-500/30 bg-blue-900/20 p-4 space-y-3">
+        <div className="text-xs font-mono uppercase tracking-widest text-blue-400">Share with Beneficiaries</div>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            readOnly
+            value={`${typeof window !== 'undefined' ? window.location.origin : ''}/claim/${address}`}
+            className="flex-1 bg-black border border-white/10 text-white font-mono text-xs px-3 py-2 rounded-sm"
+          />
+          <button
+            onClick={() => {
+              const url = `${typeof window !== 'undefined' ? window.location.origin : ''}/claim/${address}`;
+              navigator.clipboard.writeText(url);
+            }}
+            className="bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs px-4 py-2 rounded-sm transition-colors"
+          >
+            Copy Link
+          </button>
+        </div>
+        <p className="text-xs text-gray-400">
+          Share this link with beneficiaries. They can claim directly from this page.
+        </p>
       </div>
 
       {/* Countdown timer */}

@@ -3,20 +3,16 @@
 import { useState } from "react";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Shield, ArrowDownToLine, Users, Gift } from "lucide-react";
+import { Shield, Users } from "lucide-react";
 import { useWill } from "@/hooks/useWill";
 import { WillOverview } from "@/components/WillOverview";
-import { DepositPanel } from "@/components/DepositPanel";
 import { BeneficiariesPanel } from "@/components/BeneficiariesPanel";
-import { ClaimPanel } from "@/components/ClaimPanel";
 import type { Tab } from "@/types";
 import clsx from "clsx";
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode; requiresWill?: boolean }[] = [
   { id: "overview", label: "My Will", icon: <Shield className="w-4 h-4" /> },
-  { id: "deposit", label: "Deposit", icon: <ArrowDownToLine className="w-4 h-4" />, requiresWill: true },
   { id: "beneficiaries", label: "Beneficiaries", icon: <Users className="w-4 h-4" />, requiresWill: true },
-  { id: "claim", label: "Claim", icon: <Gift className="w-4 h-4" /> },
 ];
 
 export default function Home() {
@@ -108,7 +104,6 @@ export default function Home() {
         {activeTab === "beneficiaries" && hasWill && (
           <BeneficiariesPanel beneficiaries={beneficiaries} onSuccess={refetch} />
         )}
-        {activeTab === "claim" && address && <ClaimPanel address={address} />}
       </div>
     </div>
   );
