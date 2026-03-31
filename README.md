@@ -25,6 +25,8 @@ PrivateWill demonstrates how FHE enables **private inheritance planning** on pub
 
 ## 📋 Smart Contracts (Sepolia)
 
+[PrivateWill-SmartContract-Repo](https://github.com/ajaybutti/private-Will-FHE-contract)
+
 | Contract | Address |
 |---|---|
 | **PrivateWill** (Main Protocol) | `0x8d2E87114e66E3F56BBf41C1F14C0ace7f1F00f4` |
@@ -174,7 +176,9 @@ This approach ensures that **dormant inheritance funds don't sit idle** — they
 [Watch Demo](https://www.youtube.com/watch?v=AEwiB9fEhFY)
 
 
-[📊 View Presentation](./PrivateWillZama.pptx)
+[📊 View Presentation](./PrivateWillZAMA.pptx)
+
+
 ---
 
 
