@@ -171,8 +171,10 @@ This approach ensures that **dormant inheritance funds don't sit idle** — they
 
 ## 🎬 Demo
 
-[pending]
+[Watch Demo](https://www.youtube.com/watch?v=AEwiB9fEhFY)
 
+
+[📊 View Presentation](./PrivateWillZama.pptx)
 ---
 
 
